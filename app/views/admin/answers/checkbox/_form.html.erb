@@ -1,0 +1,13 @@
+<%= semantic_form_for [:admin, @answer], builder: ActiveAdmin::FormBuilder do |f|%>
+<%= f.inputs "Question Type" do%>
+<%= f.input :question, :input_html => { :readonly => true } %>
+<%= f.object.question.body%>
+<%= f.inputs name: 'Additional information', for: :config do |g|%>
+<%= g.input :type_answer, as: :boolean, collection: [true,false]%>
+<%= f.object.question.config[:options]%>
+<%= g.input :options, as: :string%>
+<%end%>
+<%= f.input :body %>
+<%end%>
+<%= f.actions %>
+<%end%>

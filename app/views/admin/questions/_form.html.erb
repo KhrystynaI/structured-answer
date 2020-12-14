@@ -1,0 +1,9 @@
+<div id="form">
+<%= semantic_form_for [:admin, @question], builder: ActiveAdmin::FormBuilder, remote: true do |f|%>
+<%= f.inputs "Question Type" do%>
+<%= f.input :category, as: :select, collection: Category.all.collect { |u| [u.name, u.id] }, allow_blank: false%>
+<%= f.input :title, allow_blank: false %>
+<%end%>
+<%= f.actions %>
+<%end%>
+</div>
