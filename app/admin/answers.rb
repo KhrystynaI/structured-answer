@@ -13,14 +13,7 @@ ActiveAdmin.register Answer do
 
         def create
           @answer = Answer.create!(permitted_params[:answer])
-          case @answer.question.category_id
-          when Category.find_by(name: Category::CATEGORIES_NAME[0]).id
-            render "admin/answers/checkbox/create.js.erb"
-          when Category.find_by(name: Category::CATEGORIES_NAME[1]).id
-            render "admin/answers/date_range/create.js.erb"
-          else
-            render js: "window.location.href = '/admin/answers/#{@answer.id}'"
-          end
+          render @answer.find_template
         end
 
         def update

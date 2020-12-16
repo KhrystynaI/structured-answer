@@ -4,4 +4,5 @@ class Category < ApplicationRecord
     "checkbox",
     "date_range"
   ]
+
 end

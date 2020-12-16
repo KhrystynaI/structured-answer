@@ -12,4 +12,13 @@ class Question < ApplicationRecord
     "test",
     "test2"
   ]
+
+  def find_template
+  template = self.category.name
+  "admin/questions/#{template}/create.js.erb"
+  end
+
+  def self.get_answers(data, formatter)
+    formatter.sort_answers(data)
+  end
 end
