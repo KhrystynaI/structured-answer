@@ -14,7 +14,7 @@ ActiveAdmin.register Question do
 
       def create
         @question = Question.create!(permitted_params[:question])
-        render @question.find_template
+        render QuestionTypeHelper.render("questions",@question.category.name)
       end
 
       def update

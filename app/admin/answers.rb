@@ -13,7 +13,7 @@ ActiveAdmin.register Answer do
 
         def create
           @answer = Answer.create!(permitted_params[:answer])
-          render @answer.find_template
+          render QuestionTypeHelper.render("answers",@answer.question.category.name)
         end
 
         def update

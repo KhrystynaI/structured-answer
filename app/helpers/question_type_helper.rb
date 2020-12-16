@@ -1,4 +1,9 @@
 module QuestionTypeHelper
+
+  def self.render(type,name)
+    "admin/#{type}/#{name}/create.js.erb"
+  end
+
   class Checkbox
 
     def self.sort_answers(data)
