@@ -2,7 +2,6 @@
 <%= semantic_form_for [:admin, @answer], builder: ActiveAdmin::FormBuilder, remote: true do |f|%>
 <%= f.inputs "Question Type" do%>
 <%= f.input :question, as: :select, collection: Question.all.collect { |u| [u.title, u.id] }, allow_blank: false%>
-<%= f.input :body, allow_blank: false %>
 <%end%>
 <%= f.actions %>
 <%end%>
