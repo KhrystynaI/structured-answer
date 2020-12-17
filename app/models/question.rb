@@ -13,6 +13,10 @@ class Question < ApplicationRecord
     "test2"
   ]
 
+  def for_form
+    self.category.params_config.map{|c|eval(c)}
+  end
+
   def self.get_answers(data, formatter)
     formatter.sort_answers(data)
   end
