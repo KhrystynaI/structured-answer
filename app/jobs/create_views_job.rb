@@ -24,6 +24,7 @@ class CreateViewsJob < ApplicationJob
       <%= semantic_form_for [:admin, @question], builder: ActiveAdmin::FormBuilder do |f|%>
       <%= f.inputs "Question Type" do%>
       <%= f.input :category, :input_html => { :readonly => true } %>
+      <%= f.input :body %>
       <%=f.inputs name: 'Additional information', for: :config do |g|%>
       <%@question.for_form.each do |c|%>
       <%= g.input c.keys.first, as: c.values.first%>
@@ -40,6 +41,7 @@ class CreateViewsJob < ApplicationJob
       <%= semantic_form_for [:admin, @answer], builder: ActiveAdmin::FormBuilder do |f|%>
       <%= f.inputs "Question Type" do%>
       <%= f.input :question, :input_html => { :readonly => true } %>
+      <%= f.input :body %>
       <%=f.inputs name: 'Additional information', for: :config do |g|%>
       <%@answer.question.for_form.each do |c|%>
       <%= g.input c.keys.first, as: c.values.first%>
